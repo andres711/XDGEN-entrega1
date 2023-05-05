@@ -1,0 +1,25 @@
+.customBody {
+    background-color: rgb(248, 221, 186);
+}
+#id-form{
+    display: none;
+}
+img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+#datos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.card{
+    justify-content: center;
+    background-color: rgb(188, 220, 143);
+    border-radius: 10px;
+    width: 40%; /* Cada elemento ocupa el 50% del ancho del contenedor */
+    box-sizing: border-box; /* Se incluyen los bordes y el padding en el ancho */
+    padding: 10px;
+    border: 1px solid black;
+}
