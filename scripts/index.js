@@ -5,6 +5,7 @@ $(document).ready(function () {
 });
 var URL = "https://645413e9c18adbbdfeaefa47.mockapi.io/users2";
 
+//*****MOSTRAR USUARIOS*****
 function showUsers() {
   $.ajax({
     url: URL,
@@ -68,6 +69,7 @@ function showUsers() {
     });
 }
 
+//*****SUBMIT PARA CREAR O EDITAR USUARIOS******
 function actionsUser() {
   $("#form-user").submit(function (event) {
     event.preventDefault();
@@ -79,6 +81,7 @@ function actionsUser() {
   });
 }
 
+//*****ELIMINAR USUARIO*****
 function deleteUser(id) {
   $.ajax({
     url: URL + "/" + id,
@@ -91,16 +94,8 @@ function deleteUser(id) {
       console.log(error);
     });
 }
-function togleForm() {
-  $("#togle-form").change(function () {
-    if ($(this).is(":checked")) {
-      $("#title-form").html("Edit");
-    } else {
-      $("#title-form").html("Create");
-    }
-  });
-}
 
+//*****TRAER DETALLE USUARIO*****
 function getUserById(id) {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -119,6 +114,7 @@ function getUserById(id) {
   });
 }
 
+//*****LLENAR FORMULARIO DE EDICION******
 function fillForm(data) {
   $("#name").val(data.name);
   $("#age").val(data.age);
@@ -127,6 +123,7 @@ function fillForm(data) {
   $("#id").val(data.id);
 }
 
+//*****EDITAR USUARIO*****
 function editUser() {
   var userEdit = {
     id:$("#id").val(),
@@ -150,7 +147,7 @@ function editUser() {
       console.error(error);
     });
 }
-
+//*****CREAR USUARIO******
 function createUser() {
   var user = {
     name: $("#name").val(),
@@ -187,3 +184,14 @@ function createUser() {
       alert("Hubo un error al enviar el formulario: " + error);
     });
 }
+
+//*****TOGLE PARA CAMBIAR FORMULARIO EDICION/CREACION*****
+function togleForm() {
+    $("#togle-form").change(function () {
+      if ($(this).is(":checked")) {
+        $("#title-form").html("Edit");
+      } else {
+        $("#title-form").html("Create");
+      }
+    });
+  }
